@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  font-family: 'Courier New', monospace;
+}
+#game-start, #game-scene, #blackout, #pause-menu, #confirm-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#game-start {
+  background-image: url('mrdeer.png');
+  background-size: cover;
+  background-position: center;
+  animation: fadeIn 2s ease forwards;
+  z-index: 5;
+}
+#game-scene {
+  background-image: url('mrdeer.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#pause-menu, #confirm-exit {
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+  display: none;
+}
+#blackout {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  display: none;
+  z-index: 6;
+  text-align: center;
+  padding: 2rem;
+}
+.fog {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
+  animation: fogMove 6s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes fogMove {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+.button, .option {
+  position: relative;
+  z-index: 2;
+  margin: 20px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.button:hover, .option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px red;
+  animation: glitch 0.3s infinite;
+}
+@keyframes glitch {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(15deg) brightness(1.1); }
+  50% { filter: hue-rotate(-15deg) brightness(0.9); }
+  75% { filter: hue-rotate(20deg) brightness(1); }
+  100% { filter: hue-rotate(0deg) brightness(1); }
+}
+#pause-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  cursor: pointer;
+}
+#question {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+}
+.typing {
+  animation: typing 3s steps(40, end), blink .75s step-end infinite;
+  border-right: 2px solid white;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+#timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border: 5px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  z-index: 3;
+  animation: spin 10s linear forwards;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+#glitch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('glitch1.png') no-repeat center center;
+  background-size: cover;
+  z-index: 999;
+  display: none;
+}
