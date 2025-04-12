@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Deer Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>hello world!</h1>
-    <h2>God is good for real.</h2>
-    <script src="main.js"></script>
-    
+  <div id="glitch"></div>
+  <div id="blackout"></div>
+  <div id="pause-menu">
+    <button class="button" id="leave-btn">Leave</button>
+  </div>
+  <div id="confirm-exit">
+    <p style="color:white; font-size: 1.5rem; margin-bottom: 20px;">Are you sure you want to leave?</p>
+    <div>
+      <button class="button" id="yes-exit">Yes</button>
+      <button class="button" id="no-exit">No</button>
+    </div>
+  </div>
+  <div id="game-start">
+    <div class="fog"></div>
+    <button class="button" id="start-btn">Start</button>
+    <button class="button" id="settings-btn">Settings</button>
+  </div>
+  <div id="game-scene" class="hidden">
+    <div class="fog"></div>
+    <div id="timer">10</div>
+    <div id="pause-btn" class="button">Pause</div>
+    <div id="question"></div>
+    <div id="options" style="z-index: 2; display: flex; flex-direction: column; align-items: center;"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
